@@ -64,7 +64,7 @@ in_array() {
 #-----------------------------------------------------------------------------
 
 backupdir="$HOME/.dotfiles-backup/$(date "+%Y%m%d%H%M.%S")"
-dependencies=(git tree vim virtualenv virtualenvwrapper)
+dependencies=(git tree vim virtualenv virtualenvwrapper.sh)
 excluded=(. .. .git .gitignore .gitmodules bootstrap.sh Gemfile Gemfile.lock Rakefile README.md)
 
 
