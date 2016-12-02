@@ -9,6 +9,18 @@ distribution.
 
 * Git
 * Bash
+* Python
+* Python virtualenv and virtualenvwrapper installed locally
+
+## Installing virtualenv and virtualenvwrapper locally
+
+Make sure you have pip in your system and run the following:
+
+```Bash
+$ cd ~
+$ pip install --user -U virtualenv virtualenvwrapper
+```
+This should put the virtualenv script at ```$HOME/.local/bin```.
 
 ## Bootstrapper
 

@@ -5,16 +5,16 @@
 #-----------------------------------------------------------------------------
 
 # Notice title
-notice() { echo  "\033[1;32m=> $1\033[0m"; }
+notice() { echo  "=> $1"; }
 
 # Error title
-error() { echo "\033[1;31m=> Error: $1\033[0m"; }
+error() { echo "=> Error: $1"; }
 
 # List item
-c_list() { echo  "  \033[1;32m✔\033[0m $1"; }
+c_list() { echo  "  ✔ $1"; }
 
 # Error list item
-e_list() { echo  "  \033[1;31m✖\033[0m $1"; }
+e_list() { echo  "  ✖ $1"; }
 
 # Check for dependency
 dep() {
@@ -33,7 +33,7 @@ backup() {
 
   local files=( $(ls -a) )
   for file in "${files[@]}"; do
-    in_array $file "${excluded[@]}" || cp -Rf "$HOME/$file" "$backupdir/$file"
+    in_array $file "${excluded[@]}" || [[ -f "$HOME/$file" ]] && cp -Rf "$HOME/$file" "$backupdir/$file"
   done
 }
 
@@ -64,7 +64,7 @@ in_array() {
 #-----------------------------------------------------------------------------
 
 backupdir="$HOME/.dotfiles-backup/$(date "+%Y%m%d%H%M.%S")"
-dependencies=(git tree vim)
+dependencies=(git tree vim virtualenv virtualenvwrapper)
 excluded=(. .. .git .gitignore .gitmodules bootstrap.sh Gemfile Gemfile.lock Rakefile README.md)
 
 
@@ -131,4 +131,4 @@ fi
 
 popd
 notice "Done"
-exec $SHELL -l
+notice "Restart your terminal to get the configuration."
