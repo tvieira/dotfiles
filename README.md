@@ -15,5 +15,5 @@ distribution.
 This is based on [gf3/dotfiles v1.0.0](https://github.com/gf3/dotfiles/tree/v1.0.0).
 
 ```Bash
-$ bash < <( curl https://raw.githubusercontent.com/gf3/dotfiles/master/bootstrap.sh )
+$ bash < <( curl https://raw.githubusercontent.com/tvieira/dotfiles/master/bootstrap.sh )
 ```
