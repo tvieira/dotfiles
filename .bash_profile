@@ -1,8 +1,3 @@
-# call bashrc if you login from a console
-if [ -f ~/.bashrc ]; then
-   source ~/.bashrc
-fi
-
 # Enable XON/XOFF flow control (that is, Ctrl-S/Ctrl-Q). May be negated.
 stty -ixon
 
