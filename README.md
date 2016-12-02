@@ -29,3 +29,8 @@ This is based on [gf3/dotfiles v1.0.0](https://github.com/gf3/dotfiles/tree/v1.0
 ```Bash
 $ bash < <( curl https://raw.githubusercontent.com/tvieira/dotfiles/master/bootstrap.sh )
 ```
+
+## Vim configuration
+
+I maintain my [vim configuration](https://github.com/tvieira/dotfiles-vim) in a
+different repository and ```bootstrap.sh``` will install it for you.

@@ -47,6 +47,8 @@ install() {
       cp -Rf "$file" "$HOME/$file"
     fi
   done
+  cp -Rf ".vim/vimrc" "$HOME/.vimrc"
+  cp -Rf ".vim/vimencrypt" "$HOME/.vimencrypt"
 }
 
 in_array() {

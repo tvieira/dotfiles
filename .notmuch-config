@@ -1,0 +1,22 @@
+# .notmuch-config - Configuration file for the notmuch mail system
+
+[database]
+path=/home/tmoreira/Mail
+
+[user]
+name=Tiago M. Vieira
+primary_email=
+other_email=
+
+[new]
+tags=unread;inbox;
+ignore=
+
+[search]
+exclude_tags=deleted;spam;
+
+[maildir]
+synchronize_flags=true
+
+[crypto]
+gpg_path=gpg2
