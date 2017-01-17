@@ -2,6 +2,9 @@
   name = Tiago M. Vieira
   email = tiagovieira@fedoraproject.org
 
+[init]
+  templatedir = ~/.git_templates
+
 [diff]
   tool = vimdiff
 
@@ -9,6 +12,7 @@
   editor = /usr/bin/vim
 
 [alias]
+  alias = "! git config --get-regexp ^alias\\. | sed -e 's/^alias\\.//' -e 's/ / = /' | sort"
   br = branch
   ci = commit
   co = checkout
@@ -20,6 +24,10 @@
   pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
   rb = rbranch
   rc = rank-contributors
+  rba = "rebase --abort"
+  rbc = "rebase --continue"
+  root = !pwd
+  squash = "rebase -i --autosquash"
   rv = review
   sm = show-merges
   st = status
