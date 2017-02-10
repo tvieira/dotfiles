@@ -1,6 +1,6 @@
 [user]
-  name = Tiago M. Vieira
-  email = tiagovieira@fedoraproject.org
+  name = Your Name
+  email = yourmail@mail.com
 
 [init]
   templatedir = ~/.git_templates
@@ -63,8 +63,13 @@
   default = matching
 
 [sendemail]
-  smtpserver = smtp.corp.redhat.com
-  smtpserverport = 25
+  from = YourName <email@gmail.com>
+  smtpuser = email@gmail.com
+  smtppass = PASSWORD
+  smtpserver = smtp.gmail.com
+  smtpencryption = tls
+  chainreplyto = false
+  smtpserverport = 587
 
 [gitreview]
-  username = tmoreira
+  username = gerritusername
