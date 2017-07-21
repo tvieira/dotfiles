@@ -1,5 +1,5 @@
 # weather
-alias weather="curl -4 http://wttr.in/thatcham "
+alias weather="curl -4 http://wttr.in/westford "
 
 # vi to vim
 alias vi="vim"
@@ -35,6 +35,8 @@ alias gcp="git cherry-pick"
 alias gl="git log --pretty='format:%Cgreen%h%Creset %an - %s' --graph"
 alias gpom="git pull --rebase origin master"
 alias gcd='cd "`git rev-parse --show-toplevel`"'
+alias gup="git remote add upstream"
+alias gfa="git fetch --all"
 
 # recursively delete `.pyc` files
 alias pycleanup="find . -type f -name '*.pyc' -ls -delete"

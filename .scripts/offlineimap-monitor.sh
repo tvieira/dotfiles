@@ -25,4 +25,4 @@ if ps $pid &>/dev/null; then
   exit 1
 fi
 
-offlineimap -o -u quiet -l ~/.offlineimap.log  & monitor $!
+offlineimap -o -u quiet -l ~/.logs/offlineimap.log  & monitor $!

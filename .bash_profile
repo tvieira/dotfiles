@@ -43,10 +43,10 @@ export TASKRC="$HOME/.taskrc"
 export TASKDATA="$HOME/.task/data"
 
 # Locale
-export LC_ALL=en_GB.UTF-8
-export LANG=en_GB.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="$HOME/Projects/oc-cluster-wrapper:$HOME/.npm-global/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # colorize my bash
 eval "$(dircolors -b ~/.dir_colors)"
@@ -60,3 +60,7 @@ eval "$(dircolors -b ~/.dir_colors)"
 
 # Assuming you installed virtualenv via pip --user
 [[ -f "$HOME/.local/bin/virtualenvwrapper.sh" ]] && $HOME/.local/bin/virtualenvwrapper.sh
+
+# setting up GOPATH and point PATH to Go binaries
+export GOPATH="$HOME/Projects/go"
+export PATH="$PATH:$GOPATH/bin"
