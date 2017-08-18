@@ -170,3 +170,44 @@ function fs() {
 function remove_trailing_whitespace() {
   find . -name $* -exec sed -i '' -e's/[[:space:]]*$//' {} \;
 }
+
+# get the local vm ip
+function vm-ip() {
+  VM="$1"
+  arp -an | grep "`virsh dumpxml $VM | grep "mac address" | sed "s/.*'\(.*\)'.*/\1/g"`" | awk '{ gsub(/[\(\)]/,"",$2); print $2 }'
+}
+
+function vm-uuid() {
+    VM="$1"
+    uuid=$(virsh dumpxml $VM | grep "<uuid" | sed "s/.*<uuid>\(.*\)<\/uuid>.*/\1/g" );
+    echo $uuid
+}
+
+function vm-mem() {
+    VM="$1"
+    mem=$(virsh dumpxml $VM | grep "<memory" | sed "s/.*<memory unit='KiB'>\(.*\)<\/memory>.*/\1/g" );
+    echo $( expr $mem / 1024 )
+}
+
+function vm-currmem() {
+    VM="$1"
+    mem=$(virsh dumpxml $VM | grep "<currentMemory" | sed "s/.*<currentMemory unit='KiB'>\(.*\)<\/currentMemory>.*/\1/g" );
+    echo $( expr $mem / 1024 )
+}
+
+function vm-vcpu() {
+    VM="$1"
+    vcpu=$(virsh dumpxml $VM | grep "<vcpu" | sed "s/.*<vcpu[^>]*>\(.*\)<\/vcpu>.*/\1/g" );
+    echo $vcpu
+}
+
+function vm-info() {
+    echo "------------------------------------------------------------------------------------------------------------------------";
+    printf "%-30s%-17s%-12s%-12s%-8s%-40s\n" "VM Name" "IP Address" "Memory" "Current" "VCPUs" "UUID";
+    virsh list --all | grep -o '[0-9]* [a-z]*.*running' | while read -r line;
+    do
+        line_cropped=$(echo "$line" | sed 's/[0-9][ ]*\([-._0-9a-zA-Z]*\)[ ]*running/\1/' );
+        printf "%-30s%-17s%-12s%-12s%-8s%-40s\n" "$line_cropped" $( vm-ip "$line_cropped" ) $( vm-mem $line ) $( vm-currmem $line ) $( vm-vcpu $line ) $( vm-uuid $line );
+    done;
+    echo "------------------------------------------------------------------------------------------------------------------------";
+}

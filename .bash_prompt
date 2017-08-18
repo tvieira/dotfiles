@@ -91,7 +91,7 @@ function set_virtualenv () {
   if test -z "$VIRTUAL_ENV" ; then
       PYTHON_VIRTUALENV=""
   else
-      PYTHON_VIRTUALENV="${LIGHT_PURPLE}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE} "
+      PYTHON_VIRTUALENV="${WHITE}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE} "
   fi
 }
 
@@ -119,10 +119,15 @@ function set_bash_prompt () {
     BRANCH="${COLOR_NONE}"
   fi
 
+  # temporary
+  #VTE_PWD_THING=""
+  #if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  #  VTE_PWD_THING="$(__vte_osc7)"
+  #fi
   # Set the bash prompt variable.
   PS1="
-${PYTHON_VIRTUALENV}${LIGHT_GRAY}\u@\h ${BRANCH}${AQUA}\w${COLOR_NONE}
-${PROMPT_SYMBOL} "
+\u@${YELLOW}\h ${LIGHT_GRAY}${BRANCH}${AQUA}\w${COLOR_NONE}
+${PYTHON_VIRTUALENV}${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
